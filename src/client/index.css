@@ -1,0 +1,199 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: var(--font-sans);
+  --font-mono: "Geist Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
+  --color-paper: var(--paper);
+  --color-ink-2: var(--ink-2);
+  --color-border-strong: var(--border-strong);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-strong: var(--brand-strong);
+  --color-sim: var(--sim);
+  --color-sim-foreground: var(--sim-foreground);
+  --color-sim-muted: var(--sim-muted);
+  --color-sim-border: var(--sim-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Terac ultramarine on warm paper. Blue is spent on actions, focus, selection and "routing"; status
+   colours carry state; violet (hatched) always means simulation. */
+:root {
+  --paper: #f4f4f1;
+  --background: #ffffff;
+  --foreground: #1b1b17;
+  --ink-2: #57554f;
+  --card: #ffffff;
+  --card-foreground: #1b1b17;
+  --popover: #ffffff;
+  --popover-foreground: #1b1b17;
+  --primary: #1f2cf4;
+  --primary-foreground: #ffffff;
+  --secondary: #f0f0ee;
+  --secondary-foreground: #1b1b17;
+  --muted: #f4f4f1;
+  --muted-foreground: #74716a;
+  --accent: #f0f0ee;
+  --accent-foreground: #1b1b17;
+  --destructive: #be222a;
+  --border: #e7e6e2;
+  --border-strong: #d6d4ce;
+  --input: #dedcd6;
+  --ring: #1f2cf4;
+  --chart-1: #1f2cf4;
+  --chart-2: #00713e;
+  --chart-3: #ab5900;
+  --chart-4: #007283;
+  --chart-5: #be222a;
+  --radius: 0.625rem;
+  --sidebar: #f4f4f1;
+  --sidebar-foreground: #57554f;
+  --sidebar-primary: #1f2cf4;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ffffff;
+  --sidebar-accent-foreground: #1b1b17;
+  --sidebar-border: #e7e6e2;
+  --sidebar-ring: #1f2cf4;
+  --brand: #1f2cf4;
+  --brand-foreground: #ffffff;
+  --brand-soft: #eaf0ff;
+  --brand-strong: #1515bf;
+  /* Simulation = the outside world (engine, contributors). Violet, and hatched, so it reads even in greyscale. */
+  --sim: #7c3aed;
+  --sim-foreground: #5722ad;
+  --sim-muted: #f7f2ff;
+  --sim-border: #cfc5fe;
+}
+
+.dark {
+  --background: oklch(0.141 0.005 285.8);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.9);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.9);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.92 0.004 286.3);
+  --primary-foreground: oklch(0.21 0.006 285.9);
+  --secondary: oklch(0.274 0.006 286);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286);
+  --muted-foreground: oklch(0.705 0.015 286.1);
+  --accent: oklch(0.274 0.006 286);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.552 0.016 285.9);
+  --sidebar: oklch(0.21 0.006 285.9);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.274 0.006 286);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.552 0.016 285.9);
+  --sim: oklch(0.702 0.183 293.5);
+  --sim-foreground: oklch(0.894 0.057 293.3);
+  --sim-muted: oklch(0.283 0.141 291.1 / 40%);
+  --sim-border: oklch(0.432 0.232 292.8 / 60%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  html {
+    @apply font-sans;
+  }
+  body {
+    @apply bg-paper text-foreground antialiased;
+  }
+}
+
+@utility num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The simulation's material: violet hatching. */
+@utility sim-hatch {
+  background-color: #ffffff;
+  background-image: repeating-linear-gradient(135deg, var(--sim-muted) 0 7px, #ffffff 7px 14px);
+}
+
+/* Mono section label, as on terac.com. */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+@keyframes row-flash {
+  from {
+    background-color: var(--brand-soft);
+  }
+}
+@utility flash {
+  animation: row-flash 1.6s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

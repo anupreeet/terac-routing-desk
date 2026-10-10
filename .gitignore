@@ -1,0 +1,21 @@
+node_modules/
+dist/
+data/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+.DS_Store
+.env
+# The take-home brief is Terac's document, not ours to publish.
+Engineer Take Home.pdf
+# Other candidates' public submissions, cloned for comparison only. Never commit.
+_reference/
+.e2e/
+test-results/
+playwright-report/
+# Personal notes for recording the Loom walkthrough. Not part of the submission.
+loom/
+
+# Agent sessions, kept locally only
+claude-transcript.txt
+AGENT_SESSIONS.md

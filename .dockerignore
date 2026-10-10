@@ -1,0 +1,17 @@
+node_modules
+dist
+.e2e
+test-results
+playwright-report
+data
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+.git
+.github
+_reference
+loom
+claude-transcript.txt
+Engineer Take Home.pdf
+2026-10-09-*.txt
+ClaudeTranscript.txt

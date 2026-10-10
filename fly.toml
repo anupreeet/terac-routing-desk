@@ -1,0 +1,35 @@
+# Fly.io config for the Terac Routing Desk.
+# One VM, one SQLite file on a persistent volume at /data.
+app = "terac-routing-desk"
+primary_region = "sjc"  # change if you want a region closer to the reviewer
+
+[build]
+
+[env]
+  NODE_ENV = "production"
+  DESK_DB = "/data/desk.sqlite"
+  PORT = "3001"
+
+[http_service]
+  internal_port = 3001
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "15s"
+  timeout = "3s"
+  method = "GET"
+  path = "/api/health"
+
+# One VM only: the desk is a single process (CLAUDE.md: "Never let setTimeout/setInterval own business state").
+# Two VMs would each enforce deadlines on the same database.
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"
+
+[[mounts]]
+  source = "desk_data"
+  destination = "/data"
